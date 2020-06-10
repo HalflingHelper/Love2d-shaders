@@ -4,7 +4,7 @@ Here are the usecase examples for all of the shaders
 Contents
 --------
 
-[Smoke] (github.com)
+[Smoke] (<https://github.com/HalflingHelper/Love2d-shaders/blob/master/Examples.md#smoke>)
 
 
 Smoke
