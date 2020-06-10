@@ -10,4 +10,4 @@ https://love2d.org/ : Here you can find downloads for the latest version of Love
 # A Few Special Notes
 All of the shaders have example use cases. If they are self propogating, such as the smoke shader, they may require multiple canvases to work properly. All examples are relevant as of Love2d 11.3.
 
-#Shaders
+# Shaders
