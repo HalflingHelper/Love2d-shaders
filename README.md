@@ -12,11 +12,13 @@ All of the shaders have example use cases. If they are self propogating, such as
 
 # Shaders
 
-blur.fs
+[blur.fs](https://github.com/HalflingHelper/Love2d-shaders/blob/master/blur.fs)
+
 This is a shader based off of gaussian blur using an array of 10 values to approximate the curve.
 I modified this shader from the gaussian blur section of [this article](https://learnopengl.com/Advanced-Lighting/Bloom) about bloom.
 
-smoke.fs
+[smoke.fs](https://github.com/HalflingHelper/Love2d-shaders/blob/master/smoke.fs)
+
 Turns pixels into a smoky effect.
 I modified this shader from the download at [this link](https://love2d.org/forums/viewtopic.php?f=4&t=3733&p=167865#p167865) to work with Love 11.3.
 
