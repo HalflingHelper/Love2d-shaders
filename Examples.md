@@ -5,10 +5,8 @@ Contents
 --------
 
 [Gaussian Blur](https://github.com/HalflingHelper/Love2d-shaders/blob/master/Examples.md#gaussian-blur)
----------------
 
 [Smoke](https://github.com/HalflingHelper/Love2d-shaders/blob/master/Examples.md#smoke)
--------
 
 
 Gaussian Blur
