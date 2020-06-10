@@ -12,51 +12,11 @@ All of the shaders have example use cases. If they are self propogating, such as
 
 # Shaders
 
-Smoke.fs
+blur.fs
+This is a shader based off of gaussian blur using an array of 10 values to approximate the curve.
+I modified this shader from the gaussian blur section of [this article](https://learnopengl.com/Advanced-Lighting/Bloom) about bloom.
+
+smoke.fs
 Turns pixels into a smoky effect.
+I modified this shader from the download at [this link](https://love2d.org/forums/viewtopic.php?f=4&t=3733&p=167865#p167865) to work with Love 11.3.
 
-```
-function love.load()
-   currentCanvas = love.graphics.newCanvas()
-   otherCanvas = love.graphics.newCanvas()
-      
-   smoke_shader = love.graphics.newShader('smoke.fs')
-      
-   smoke:send("screen", {love.graphics.getPixelDimensions()})
-end
-   
-function love.update(dt)
-
-   if love.mouse.isDown(1) then
-     local mouseX, mouseY = love.mouse.getPosition()
-     table.insert(mouseParticles, {x = mouseX, y = mouseY})
-   end
-end
-
-function love.draw()
-   currentCanvas:renderTo(function()
-     for i, part in ipairs(mouseParticles) do
-       love.graphics.circle('fill', part.x, part.y, 5)
-     end
-   end)
-    
-   mouseParticles = {}
-    
-   love.graphics.setShader(smoke)
-    
-   otherCanvas:renderTo(function()
-     love.graphics.draw(currentCanvas)
-   end)
-    
-   currentCanvas:renderTo(function()
-     love.graphics.clear()
-	    
-	   love.graphics.draw(otherCanvas)
-     love.graphics.clear() 
-   end)
-        
-   love.graphics.draw(currentCanvas)
-    
-   otherCanvas:renderTo(function() love.graphics.clear() end) 
-end
-```
