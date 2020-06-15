@@ -8,6 +8,8 @@ Contents
 
 [Smoke](https://github.com/HalflingHelper/Love2d-shaders/blob/master/Examples.md#smoke)
 
+[Water](https://github.com/HalflingHelper/Love2d-shaders/blob/master/Examples.md#water)
+
 
 Gaussian Blur
  -------------
@@ -94,3 +96,45 @@ function love.load()
  ```
  
  
+Water
+-----
+```
+function love.load()
+   currentCanvas = love.graphics.newCanvas()
+   pastCanvas = love.graphics.newCanvas()
+   displayCanvas = love.graphics.newCanvas()
+
+   water_shader = love.graphics.newShader("water.fs")
+
+   water_shader:send("screen", {love.graphics.getPixelDimensions()})
+
+   --Background texture can also be a canvas
+   image = love.graphics.newImage('z.png')
+   water_shader:send("background_texture", image)
+end   
+ 
+function love.draw()
+   --Potentially hold sources in a table to have multiple
+   water_shader:send("source", {love.mouse.getPosition()})
+
+   water_shader:send("past_texture", pastCanvas)
+   water_shader:send("current_texture", currentCanvas)
+
+   displayCanvas:renderTo(function()
+      love.graphics.setShader(water_shader)
+         love.graphics.draw(currentCanvas)
+      love.graphics.setShader()
+   end)
+   
+   pastCanvas:renderTo(function()
+      love.graphics.draw(currentCanvas)
+   end)
+   
+   currentCanvas:renderTo(function()
+      love.graphics.draw(displayCanvas)
+   end)
+
+   love.graphics.draw(displayCanvas)
+   
+end
+```
